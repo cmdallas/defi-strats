@@ -10,7 +10,7 @@ repeat :[[https://traderjoexyz.com/ Buy]] **$TIME**;
     :[[https://app.wonderland.money/#/stake Stake]] **$TIME**;
     floating note right: <i>~65,000% APY</i>
     :[[https://abracadabra.money/pool/2 Wrap]] **$MEMO**;
-note right: Receive **$MEMO**
+note right: Receive **$wMEMO**
 repeat while (**$MIM** available to borrow using \n \t **$wMEMO** as collateral?) is (yes) not (no) ->
 }
 
