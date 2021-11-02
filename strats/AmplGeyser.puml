@@ -1,0 +1,15 @@
+@startuml AmplGeyser
+!theme cerulean
+skinparam backgroundColor White
+title AmplGeyser
+
+start
+
+:Stake **$AMPL** on Aave;
+floating note right: <i>~87,500% APY</i>
+:[[https://geyser.ampleforth.org/ Wrap]] **$aAMPL** to **$ubAAMPL**;
+:Stake **$ubAAMPL** in the Splendid Pilot (AAVE aAMPL) Geyser;
+floating note right: <i>~31.5% APY</i>
+
+end
+@enduml
