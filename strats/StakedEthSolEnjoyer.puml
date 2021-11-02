@@ -1,0 +1,40 @@
+@startuml StakedEthSolEnjoyer
+!theme cerulean
+skinparam backgroundColor White
+title StakedEthSolEnjoyer
+
+start
+
+partition Avalanche {
+    :Depost **$ETH** into Aave;
+    floating note right: <i>~2% APY</i>
+    :Borrow **$DAI**;
+    floating note right: <i>~2% Interest</i>
+}
+
+:[[https://app.allbridge.io/bridge?from=AVA&to=SOL&asset=DAI.e Bridge]] **$DAI** to Solana;
+
+partition Solana {
+    :[[https:// Swap]] **$DAI** for **$SOL**;
+    floating note right: Interest free position established
+}
+
+if (Staking **$ETH** on [[https://stake.lido.fi/ Lido?]]) then (yes)
+    partition Ethereum {
+        :[[https://stake.lido.fi/wrap Wrap]] **$stETH** on Lido;
+    }
+    :[[WormholeBridge Bridge]] **$wstETH** to Solana;
+    partition Solana {
+        :[[https://www.orca.so/pools Add liquidity]] to **stSOL/wstETH** orca.so farm;
+        floating note right: <i>~34.8% APR</i>
+    }
+else (no)
+    partition Solana {
+        :[[https:// Stake]] **$SOL** on Lido;
+        floating note right: <i>~6.7% APR</i>
+    }
+    end
+endif
+
+end
+@enduml
