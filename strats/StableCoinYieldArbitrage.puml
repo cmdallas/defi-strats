@@ -1,0 +1,26 @@
+@startuml StableCoinYieldArbitrage
+!theme cerulean
+skinparam backgroundColor White
+title StableCoinYieldArbitrage
+
+start
+
+while ([[https://app.aave.com/#/borrow Aave]] **[USDC, USDC, DAI]** (Borrow APR - Borrow rewards APR) **<** [[https://avax.curve.fi/aave/ avax.curve.aave pool]] (base + rewards) APR?)
+    if (Position Active?) then (yes)
+    else (no)
+        if (Position closed within `cooldownPeriod`?) then (yes)
+            end
+        else (no)
+            :Borrow lowest interest stable coin @ ~35% LTV;
+            :Deposit into the Curve Aave pool;
+        endif
+    endif
+endwhile (No)
+if (Position Active?) then (yes)
+    :Withdraw from Curve;
+    :Repay loan on Aave;
+else (no)
+endif
+
+end
+@enduml
