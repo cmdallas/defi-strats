@@ -1,0 +1,11 @@
+@startuml JitoLoop
+!theme cerulean
+skinparam backgroundColor White
+title JitoLoop
+
+start
+
+repeat: **$SOL** available?;
+:Depost **$SOL** into Jito for **$jitoSOL**;
+:Deposit **$jitoSOL** into marginfi;
+:Borrow **$SOL** on marginfi against **$jitoSOL**;
